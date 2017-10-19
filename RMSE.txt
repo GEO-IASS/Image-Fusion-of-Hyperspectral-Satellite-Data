@@ -1,0 +1,25 @@
+##ENVI IDL script
+PRO  RMSE
+ENVI_SELECT, fid=fid,dims=dims,pos=pos
+    ENVI_OPEN_FILE, select_file, r_fid=fid
+IF (fid EQ -1) THEN RETURN
+ENVI_FILE_QUERY, fid, ns=ns, nl=nl, nb=nb,dims=dims,DATA_TYPE=DATA_TYPE
+;pos  = LINDGEN(nb)
+FOR p=0,153 DO BEGIN   
+ a = ENVI_GET_DATA(fid=fid, dims=dims, pos=p)
+ b = ENVI_GET_DATA(fid=fid, dims=dims, pos=p+154)
+ k=0.0 
+ l=0.0
+ For m=0,ns-1 DO BEGIN 
+  For n=0,nl-1 DO BEGIN
+   x=a[m,n]
+   y=b[m,n]
+   k=x-y
+   l=l+k^2
+  ENDFOR
+ ENDFOR
+ l=l/(ns*nl)
+ l=sqrt(l)
+ print,l
+ENDFOR
+END

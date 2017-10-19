@@ -1,0 +1,24 @@
+PRO  PSNR
+  ENVI_SELECT, fid=fid,dims=dims,pos=pos
+  ;  ENVI_OPEN_FILE, select_file, r_fid=fid
+  IF (fid EQ -1) THEN RETURN
+  ENVI_FILE_QUERY, fid, ns=ns, nl=nl, nb=nb,dims=dims,DATA_TYPE=DATA_TYPE
+FOR p=0,153 DO BEGIN
+  a = ENVI_GET_DATA(fid=fid, dims=dims, pos=p)  
+  b = ENVI_GET_DATA(fid=fid, dims=dims, pos=p+154)
+  c=0
+  c=float(c)
+  FOR m=0,ns-1 DO BEGIN
+    FOR n=0,nl-1 DO BEGIN
+      i=a[m,n]     
+      k=b[m,n]
+      l=i-k
+      c=c+float(l^2)
+    ENDFOR
+  ENDFOR
+  T=ns*nl
+  T=FLOAT(T)
+  PSNR=10*ALOG10((65025*T)/c)
+  PRINT,PSNR
+ENDFOR
+END

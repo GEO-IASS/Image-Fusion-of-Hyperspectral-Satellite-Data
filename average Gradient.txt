@@ -1,0 +1,26 @@
+##ENVI IDL script
+pro gradient
+ENVI_SELECT, fid=fid,dims=dims,pos=pos
+IF (fid EQ -1) THEN RETURN
+ENVI_FILE_QUERY, fid, ns=ns, nl=nl, nb=nb,dims=dims,DATA_TYPE=DATA_TYPE
+FOR p=0,153 DO BEGIN   
+ a = ENVI_GET_DATA(fid=fid, dims=dims, pos=p)
+ ;b = ENVI_GET_DATA(fid=fid, dims=dims, pos=p+154)
+ m=float((ns-1)*(nl-1))
+ G=0.0
+ ;h=0.0
+ FOR j=0,nl-2,1 do begin
+  FOR i=0,ns-2,1 do begin
+   R=((a[i,j]-a[i+1,j])^2+(a[i,j]-a[i,j+1])^2)
+   R=float(R)/2
+   G=G+((1.0/m)*sqrt(R))
+   ;S=((b[i,j]-b[i+1,j])^2+(b[i,j]-b[i,j+1])^2)
+   ;S=float(S)/2
+   ;h=h+((1.0/m)*sqrt(S))
+  ENDFOR
+ ENDFOR
+ print,G
+ ;print,'THE LATTER gradient is:',S
+ENDFOR
+
+end

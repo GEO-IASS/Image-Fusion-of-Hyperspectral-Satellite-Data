@@ -1,0 +1,52 @@
+##this is an ENVI-IDL script
+PRO  CorrectionCoefficient
+ENVI_SELECT, fid=fid,dims=dims,pos=pos
+  ;  ENVI_OPEN_FILE, select_file, r_fid=fid
+IF (fid EQ -1) THEN RETURN
+ENVI_FILE_QUERY, fid, ns=ns, nl=nl, nb=nb,dims=dims,DATA_TYPE=DATA_TYPE
+;pos  = LINDGEN(nb)
+FOR p=0,153 DO BEGIN   
+ a = ENVI_GET_DATA(fid=fid, dims=dims, pos=p)
+ b = ENVI_GET_DATA(fid=fid, dims=dims, pos=p+154)
+ k=0.0 
+ l=0.0
+ k=float(k)
+ l=float(l)
+ T=ns*nl
+ T=float(T)
+ For m=0,ns-1 DO BEGIN 
+  For n=0,nl-1 DO BEGIN
+   x=a[m,n]
+   k=x+k
+   y=b[m,n]
+   l=y+l
+  ENDFOR
+ ENDFOR
+ k=k/T
+ l=l/T
+ c=0.0
+ g=0.0
+ h=0.0
+ c=float(c)
+ g=float(g)
+ h=float(h)
+ FOR m=0,ns-1 DO BEGIN   
+  FOR n=0,nl-1 DO BEGIN
+   z=a[m,n]
+   w=b[m,n]
+   d=(z-k)*(w-l)
+   d=float(d)
+   c=c+d                 
+   e=(z-k)^2
+   e=float(e)
+   g=e+g
+   f=(w-l)^2
+   f=float(f)
+   h=h+f                 
+  ENDFOR
+ ENDFOR
+ q=c/sqrt(g*h)
+ q=float(q)
+ print,q
+ENDFOR
+END

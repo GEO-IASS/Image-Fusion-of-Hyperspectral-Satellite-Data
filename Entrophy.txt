@@ -1,0 +1,37 @@
+##this is an ENVI-IDL script
+PRO  Entropy
+  ENVI_SELECT, fid=fid,dims=dims,pos=pos
+  ;  ENVI_OPEN_FILE, select_file, r_fid=fid
+  IF (fid EQ -1) THEN RETURN
+  ENVI_FILE_QUERY, fid, ns=ns, nl=nl, nb=nb,dims=dims,DATA_TYPE=DATA_TYPE
+FOR p=0,153 DO BEGIN
+  a = ENVI_GET_DATA(fid=fid, dims=dims, pos=p)  
+  maxx=MAX(a,min=minn)
+  k=maxx-minn    
+  n=k+1;
+  ;print,'n is',n
+  temp=DBLARR(n)
+  ;print,'temp is',temp
+  FOR m=0,ns-1 DO BEGIN
+    FOR n=0,nl-1 DO BEGIN
+      i=a[m,n]     
+      i=i-minn
+      temp[i]=temp[i]+1
+    ENDFOR
+  ENDFOR
+  ;print,'temp is',temp
+  T=ns*nl
+  T=FLOAT(T)
+  temp=temp/T
+  entropy=0.0
+  ;
+  FOR i=0,maxx-minn DO BEGIN
+    IF  temp(i) EQ 0  THEN BEGIN
+      entropy=entropy
+    ENDIF ELSE BEGIN
+      entropy=entropy-temp(i)*(ALOG(temp(i))/ALOG(2))
+    ENDELSE
+  ENDFOR
+  PRINT,entropy
+ENDFOR
+END

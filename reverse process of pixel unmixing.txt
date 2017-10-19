@@ -1,0 +1,38 @@
+##this is an ENVI-IDL script
+pro final
+openr,lun,'C:\Users\Administrator\Desktop\dy.txt',/get_lun
+spectral=findgen(6,154)
+readf,lun,spectral
+ENVI_SELECT, fid=fid,dims=dims,pos=pos
+  IF (fid EQ -1) THEN RETURN
+ENVI_FILE_QUERY, fid, ns=ns, nl=nl, nb=nb,dims=dims,DATA_TYPE=DATA_TYPE 
+store=FLTARR(ns,nl,5)
+FOR p=0,4 DO BEGIN
+ a = ENVI_GET_DATA(fid=fid, dims=dims, pos=p)
+ FOR m=0,ns-1 DO BEGIN
+   FOR n=0,nl-1 DO BEGIN
+    store[m,n,p]=a[m,n]
+   ENDFOR
+ ENDFOR
+ENDFOR
+procedure=FLTARR(ns,nl,5)
+outcome=FLTARR(ns,nl,154)
+FOR i=0,153 DO BEGIN
+ FOR p=0,4 DO BEGIN
+  FOR m=0,ns-1 DO BEGIN
+   FOR n=0,nl-1 DO BEGIN
+     procedure[m,n,p]=store[m,n,p]*spectral[p+1,i]
+   ENDFOR
+  ENDFOR
+  FOR m=0,ns-1 DO BEGIN
+   FOR n=0,nl-1 DO BEGIN
+     outcome[m,n,i]=procedure[m,n,p]+outcome[m,n,i]
+   ENDFOR
+  ENDFOR
+ ENDFOR
+ print,i
+ENDFOR
+outfile = dialog_pickfile(title='Pick the outfiles',$
+  path='C:\Users\Administrator\Desktop\project,/write)
+envi_write_envi_file,outcome,out_name=outfile,map_info=map_info,/NO_OPEN
+end
