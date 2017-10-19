@@ -35,7 +35,7 @@ Images have been clipped for visulization
 <br> <br>
 
 * Fusion of ALI panchromatic image and Hyperion image
-<div align=center><img width="300" height="420" src="https://github.com/acephaly/PNG-Files/blob/master/hyperion.png?raw=true"><img align="left" width="300" height="420" src="https://github.com/acephaly/PNG-Files/blob/master/pan.png?raw=true" style="float: left"></div>
+<div align=center><img width="300" height="400" src="https://github.com/acephaly/PNG-Files/blob/master/hyperion.png?raw=true"><img align="left" width="300" height="400" src="https://github.com/acephaly/PNG-Files/blob/master/pan.png?raw=true" style="float: left"></div>
 &nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp;  &nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;2007 &nbsp; &nbsp;  &nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;  &nbsp; &nbsp;  &nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp;  &nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp;  &nbsp; &nbsp;&nbsp; &nbsp;&nbsp;  &nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;  2008
 <br> <br>
 <div align=center><img width="300" height="300" src="https://github.com/acephaly/PNG-Files/blob/master/2010.png?raw=true"><img align="left" width="300" height="300" src="https://github.com/acephaly/PNG-Files/blob/master/2009.png?raw=true" style="float: left"></div>
