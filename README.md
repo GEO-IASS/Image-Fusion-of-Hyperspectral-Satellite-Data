@@ -25,11 +25,9 @@ Entropy, Average Gradient, Correlation coefficient and PSNR(Peak signal-to-noise
 ALI (res: 10m), Hyperion data (res: 30m) of the Yellow River Delta in 2005
 
 ## Results
-* Images have been clipped with Taihu Lake shapefile
-* Pixel value ranges from -1 to 1 (NDVI range), while higher value represents higher concentration of vegetation theoretically.
-* Image is scaled with -1 as black and 1 as white.
-* Stripes of 2007 image are caused by sensor malfunction.
-<div align=center><img width="300" height="300" src="https://github.com/acephaly/PNG-Files/blob/master/2004.png?raw=true"><img align="left" width="300" height="300" src="https://github.com/acephaly/PNG-Files/blob/master/2003.png?raw=true" style="float: left"></div>
+* Images have been clipped for visulization
+
+<div align=center><img width="300" height="300" src="https://github.com/acephaly/PNG-Files/blob/master/2004.png?raw=true"><img align="left" width="300" height="300" src="https://github.com/acephaly/PNG-Files/blob/master/mult.png?raw=true" style="float: left"></div>
 &nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp;  &nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;2003 &nbsp; &nbsp;  &nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;  &nbsp; &nbsp;  &nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp;  &nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp;  &nbsp; &nbsp;&nbsp; &nbsp;&nbsp;  &nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;  2004
 <br> <br>
 <div align=center><img width="300" height="300" src="https://github.com/acephaly/PNG-Files/blob/master/2006.png?raw=true"><img align="left" width="300" height="300" src="https://github.com/acephaly/PNG-Files/blob/master/2005.png?raw=true" style="float: left"></div>
