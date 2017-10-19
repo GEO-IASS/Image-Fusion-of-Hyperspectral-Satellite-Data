@@ -19,7 +19,7 @@ The fusion of ALI panchromatic with multispectral data and fusion of Hyperion da
 
 Non-negative matrix factorization: unmix pixel of hyperion image with provided endmember info, added with spatial info created by high-pass filter from ALI panchromatic image.
 <br><br>
-Entropy, Average Gradient, Correlation coefficient and PSNR(Peak signal-to-noise ratio) could be used to evaluate the fusion.
+Entropy, Average Gradient, Correlation coefficient RMSE(root-mean-square deviation) and PSNR(Peak signal-to-noise ratio) could be used to evaluate the fusion.
 
 ## Source
 ALI (res: 10m), Hyperion data (res: 30m) of the Yellow River Delta in 2005
